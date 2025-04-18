@@ -6,17 +6,27 @@ import com.cts.SmartHotelBookingSystem.service.HotelService;
 import com.cts.SmartHotelBookingSystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+<<<<<<< HEAD
+import org.springframework.web.bind.annotation.GetMapping;
+
+=======
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+>>>>>>> 10862fa668bea1b802fb8da5cea5667dca5c15ca
 @Controller
 @RequestMapping("/reviews")
 public class ReviewController {
     @Autowired
     private ReviewService reviewService;
 
+<<<<<<< HEAD
+    @GetMapping("/reviews")
+    public String reviewsPage() {
+        return "review/reviews"; // This corresponds to reviews.html in the templates/review directory
+=======
     @Autowired
     private HotelService hotelService;
 
@@ -48,5 +58,6 @@ public class ReviewController {
     public String deleteReview(@PathVariable Long id) {
         reviewService.deleteReview(id);
         return "redirect:/reviews";
+>>>>>>> 10862fa668bea1b802fb8da5cea5667dca5c15ca
     }
 }

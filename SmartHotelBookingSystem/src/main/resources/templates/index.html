@@ -252,10 +252,18 @@
                 <li><a th:href="@{/hotels}">Hotels</a></li>
                 <li><a th:href="@{/reviews}">Reviews</a></li>
                 <li><a th:href="@{/contact}">Contact</a></li>
+                <!-- Dropdown for Login/Signup -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Login/Signup</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" th:href="@{/login}">Login</a></li>
+                        <li><a class="dropdown-item" th:href="@{/register}">Register</a></li>
+                        <li><a class="dropdown-item" th:href="@{/add-hotel}">Add-hotel</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
-
     <!-- Hero Section with Slideshow -->
     <section class="hero">
         <div class="slider">
@@ -295,13 +303,14 @@
         <h2>Top Hotels</h2>
         <div class="card-container">
             <div class="hotel-card" th:each="hotel : ${hotels}">
-                <img th:src="${hotel.imageUrl}" th:alt="${hotel.name}">
+                <img th:src="${images/hotel1.img}" th:alt="${hotel.name}">
                 <h3 th:text="${hotel.name}">Hotel Name</h3>
                 <p th:text="'Location: ' + ${hotel.location}">Location</p>
                 <button class="btn-secondary" th:onclick="|window.location='@{/hotel-details/{id}(id=${hotel.id})}'|">View More</button>
             </div>
         </div>
     </section>
+    
 
     <!-- Footer -->
     <footer class="footer">
