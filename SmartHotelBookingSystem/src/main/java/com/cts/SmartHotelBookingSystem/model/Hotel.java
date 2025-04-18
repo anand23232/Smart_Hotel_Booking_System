@@ -1,51 +1,59 @@
 package com.cts.SmartHotelBookingSystem.model;
 
-import org.springframework.stereotype.Component;
+import jakarta.persistence.*;
+import java.util.List;
 
-@Component
+@Entity
 public class Hotel {
-//	HotelID, Name, Location, ManagerID, Amenities, Rating
-	private int hotelID;
-	private String name;
-	private String location;
-	private int managerID;
-	private String amenities;
-	private double Rating;
-	
-	public int getHotelID() {
-		return hotelID;
-	}
-	public void setHotelID(int hotelID) {
-		this.hotelID = hotelID;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getLocation() {
-		return location;
-	}
-	public void setLocation(String location) {
-		this.location = location;
-	}
-	public int getManagerID() {
-		return managerID;
-	}
-	public void setManagerID(int managerID) {
-		this.managerID = managerID;
-	}
-	public String getAmenities() {
-		return amenities;
-	}
-	public void setAmenities(String amenities) {
-		this.amenities = amenities;
-	}
-	public double getRating() {
-		return Rating;
-	}
-	public void setRating(double rating) {
-		Rating = rating;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+    private String location;
+    private String imageUrl;
+
+    @OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL)
+    private List<Room> rooms;
+
+    // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
+    }
 }
