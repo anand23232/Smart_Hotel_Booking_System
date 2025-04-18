@@ -1,13 +1,12 @@
 package com.cts.SmartHotelBookingSystem.controller;
 
+import com.cts.SmartHotelBookingSystem.model.Hotel;
+import com.cts.SmartHotelBookingSystem.service.HotelService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
+@RequestMapping("/hotels")
 public class HotelController {
 
-    @GetMapping("/add-hotel")
-    public String addHotelPage() {
-        return "hotel-manager/add-hotel"; // This corresponds to add-hotel.html in the templates directory
-    }
 }

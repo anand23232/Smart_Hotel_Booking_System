@@ -1,59 +1,79 @@
 package com.cts.SmartHotelBookingSystem.model;
 
-import java.sql.Date;
+import jakarta.persistence.*;
+import java.time.LocalDate;
 
-import org.springframework.stereotype.Component;
-
-@Component
+@Entity
 public class Booking {
-private int bookingId;
-private int userId;
-private int roomId;
-private Date checkInDate;
-private Date checkOutDate;
-private String status;
-private int paymentId;
-public int getBookingId() {
-	return bookingId;
-}
-public void setBookingId(int bookingId) {
-	this.bookingId = bookingId;
-}
-public int getUserId() {
-	return userId;
-}
-public void setUserId(int userId) {
-	this.userId = userId;
-}
-public int getRoomId() {
-	return roomId;
-}
-public void setRoomId(int roomId) {
-	this.roomId = roomId;
-}
-public Date getCheckInDate() {
-	return checkInDate;
-}
-public void setCheckInDate(Date checkInDate) {
-	this.checkInDate = checkInDate;
-}
-public Date getCheckOutDate() {
-	return checkOutDate;
-}
-public void setCheckOutDate(Date checkOutDate) {
-	this.checkOutDate = checkOutDate;
-}
-public String getStatus() {
-	return status;
-}
-public void setStatus(String status) {
-	this.status = status;
-}
-public int getPaymentId() {
-	return paymentId;
-}
-public void setPaymentId(int paymentId) {
-	this.paymentId = paymentId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "room_id", nullable = false)
+    private Room room;
+
+    private LocalDate checkInDate;
+    private LocalDate checkOutDate;
+
+    @Enumerated(EnumType.STRING)
+    private BookingStatus status;
+
+    // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
+    public LocalDate getCheckInDate() {
+        return checkInDate;
+    }
+
+    public void setCheckInDate(LocalDate checkInDate) {
+        this.checkInDate = checkInDate;
+    }
+
+    public LocalDate getCheckOutDate() {
+        return checkOutDate;
+    }
+
+    public void setCheckOutDate(LocalDate checkOutDate) {
+        this.checkOutDate = checkOutDate;
+    }
+
+    public BookingStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(BookingStatus status) {
+        this.status = status;
+    }
 }
 
+// Enum for Booking Status
+enum BookingStatus {
+    PENDING, CONFIRMED, CANCELLED
 }
