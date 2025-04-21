@@ -15,12 +15,18 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+
     @GetMapping
     public String getAllUsers(Model model) {
         List<User> users = userService.getAllUsers();
         model.addAttribute("users", users);
         return "users"; // Maps to users.html
     }
+    @GetMapping("/login")
+    public String loginPage(Model model) {
+        return "users/login"; // Maps to login.html
+    }
+
 
     @GetMapping("/create")
     public String createUserForm(Model model) {
