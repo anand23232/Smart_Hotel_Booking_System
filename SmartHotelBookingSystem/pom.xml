@@ -60,14 +60,6 @@
             <artifactId>ojdbc11</artifactId>
             <scope>runtime</scope> 
 		</dependency>
-<<<<<<< HEAD
-=======
-		<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-devtools</artifactId>
-    <optional>true</optional>
-</dependency>
->>>>>>> e385994a205eb7d0d60297549c4a87b41a394be2
 	</dependencies>
 
 	<build>
