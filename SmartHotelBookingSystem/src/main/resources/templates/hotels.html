@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<<<<<<< HEAD
-=======
     
->>>>>>> e385994a205eb7d0d60297549c4a87b41a394be2
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotels</title>
@@ -76,11 +73,7 @@
             const searchQuery = document.getElementById('search-bar').value.toLowerCase();
             const hotelCards = document.querySelectorAll('.hotel-card');
             let found = false;
-<<<<<<< HEAD
- 
-=======
 
->>>>>>> e385994a205eb7d0d60297549c4a87b41a394be2
             hotelCards.forEach(card => {
                 const hotelName = card.querySelector('.details h3').textContent.toLowerCase();
                 if (hotelName.includes(searchQuery)) {
@@ -90,11 +83,7 @@
                     card.style.border = '1px solid #ddd';
                 }
             });
-<<<<<<< HEAD
- 
-=======
 
->>>>>>> e385994a205eb7d0d60297549c4a87b41a394be2
             if (!found) {
                 alert('No hotels found matching your search.');
             }
