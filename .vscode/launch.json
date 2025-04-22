@@ -9,6 +9,13 @@
             "name": "SmartHotelBookingSystemApplication",
             "request": "launch",
             "mainClass": "com.cts.SmartHotelBookingSystem.SmartHotelBookingSystemApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "SmartHotelBookingSystemApplication",
+            "request": "launch",
+            "mainClass": "com.cts.SmartHotelBookingSystem.SmartHotelBookingSystemApplication",
             "projectName": "SmartHotelBookingSystem"
         },
         {
